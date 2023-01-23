@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>crud | login</title>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <div align="center"> <a target="blank" href="http://www.mspace.co.ke"><h:graphicImage value="resources/images/MSpacelogo.png" height="150"/></a></div>
+        </div>
+
+        <center>
+            <h:panelGroup id="main">
+                <p:panel header="System Login" style="width: 80%; margin-top: 10px">
+                    <h:form id="loginForm">
+                        <p:growl id="message" showDetail="true"/>
+                        <h:panelGrid >
+                            <h:outputLabel for="username" value="Username" />
+                            <p:row>
+                                <p:inputText id="username" value="#{user.username}"  required="true" requiredMessage="username required" style="margin: 0 5px"/>
+                                <p:message for="username" display="message" />
+                            </p:row>
+
+                            <h:outputLabel for="password" value="Password" />
+                            <p:row>
+                                <p:inputText id="password" value="#{user.password}" type="password"  required="true" requiredMessage="password required" style="margin: 0 5px"/>
+                                <p:message for="username" display="message" />
+                            </p:row>
+                        </h:panelGrid>
+                        <p:commandButton value="Login" action="#{user.submit}" ajax="false" style="margin-top: 10px"/>
+
+                    </h:form>
+                </p:panel>
+            </h:panelGroup>                
+
+        </center>
+
+    </h:body>
+</html>
+
