@@ -80,7 +80,7 @@ public class User {
             } else{
                 //FacesContext.getCurrentInstance().addMessage("loginForm:username", new FacesMessage("Invalid username or password"));
                 FacesContext.getCurrentInstance().addMessage("message", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid username or password", null));
-                return null;
+                return "";
             }
             
         } catch(SQLException e){
