@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form style="padding: 10px">
+                <p:menu style="border: none; background: none">
+                    <p:menuitem value="Add Product" action="#{navigator.addProductPage()}" ajax="false" style="background-color: #FAFAFA; padding: 8px;border-radius: 5px; margin-bottom: 1rem" ></p:menuitem>
+                    <p:menuitem value="Products" action="#{navigator.allProductsPage()}" ajax="false"></p:menuitem>
+                </p:menu>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
