@@ -5,14 +5,17 @@
  */
 package com.muchiri;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author developer
  */
 @ManagedBean
-public class Navigator {
+@SessionScoped
+public class Navigator implements Serializable{
     
     String contentPage = "addproduct.xhtml";
     

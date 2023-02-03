@@ -8,9 +8,9 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
@@ -18,26 +18,41 @@ and open the template in the editor.
             <center>
                 <h2>All Products</h2>
             </center>
-            <p:dataTable var="car" value="ff">
-                <p:column headerText="Id">
-                    <h:outputText value="fvf" />
-                </p:column>
+            <h:form>
+                <p:dataTable var="product" value="#{product.products}" rowKey="#{product.id}">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{product.id}" />
+                    </p:column>
 
-                <p:column headerText="Name">
-                    <h:outputText value="fdfs" />
-                </p:column>
+                    <p:column headerText="Name">
+                        <h:outputText value="#{product.name}" />
+                    </p:column>
 
-                <p:column headerText="Quantity">
-                    <h:outputText value="advf" />
-                </p:column>
+                    <p:column headerText="Quantity">
+                        <h:outputText value="#{product.quantity}" />
+                    </p:column>
 
-                <p:column headerText="Buying Price">
-                    <h:outputText value="#gabae" />
-                </p:column>
-                <p:column headerText="Selling Price">
-                    <h:outputText value="#gabae" />
-                </p:column>
-            </p:dataTable>
+                    <p:column headerText="Buying Price">
+                        <h:outputText value="#{product.buyingPrice}" />
+                    </p:column>
+                    <p:column headerText="Selling Price">
+                        <h:outputText value="#{product.sellingPrice}" />
+                    </p:column>
+                    <p:column headerText="Actions">
+                        <center>
+                            <p:commandButton value="Edit" onclick="editProduct(#{product})" style="margin-right: 8px;">
+                                <f:ajax execute="@this" render="@all" />
+                            </p:commandButton>
+                            <p:commandButton value="Delete" ajax="false" action="#{product.deleteProduct(product)}"></p:commandButton>
+                        </center>
+                    </p:column>
+                </p:dataTable>  
+                <script>
+                    function editProduct(product) {
+                    #{product.onEdit(product)};
+                    }
+                </script>
+            </h:form> 
         </ui:composition>
     </h:body>
 </html>

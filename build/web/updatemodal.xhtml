@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:dialog header="Edit Product" widgetVar="editProductDialog" modal="true">
+                <h:form id="editProductForm" binding="#{product}">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Name: "/>
+                        <p:inputText id="name" value="#{product.selectedProduct.name}"/>
+
+                        <h:outputLabel value="Quantity: "/>
+                        <p:inputText id="quantity" value="#{product.selectedProduct.quantity}"/>
+
+                        <h:outputLabel value="Buying Price: "/>
+                        <p:inputText id="buyingPrice" value="#{product.selectedProduct.buyingPrice}"/>
+
+                        <h:outputLabel value="Selling Price: "/>
+                        <p:inputText id="sellingPrice" value="#{product.selectedProduct.sellingPrice}"/>
+                    </h:panelGrid>
+                    <p:commandButton value="Update" action="#{product.updateProduct(product)}"/>
+                </h:form>
+            </p:dialog>
+
+        </ui:composition>
+    </h:body>
+</html>
